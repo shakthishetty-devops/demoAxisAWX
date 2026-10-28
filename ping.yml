@@ -1,16 +1,16 @@
-   ---
-   - name: Test playbook
-     hosts: all
-     become: true
-     tasks:
-       - name: Ping the host
-         ansible.builtin.ping:
+---
+- name: Test playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: Ping the host
+      ansible.builtin.ping:
 
-       - name: Show OS release
-         ansible.builtin.command: cat /etc/redhat-release
-         register: rel
-         changed_when: false
+    - name: Show OS release
+      ansible.builtin.command: cat /etc/redhat-release
+      register: rel
+      changed_when: false
 
-       - name: Print it
-         ansible.builtin.debug:
-           var: rel.stdout
+    - name: Print it
+      ansible.builtin.debug:
+        var: rel.stdout
